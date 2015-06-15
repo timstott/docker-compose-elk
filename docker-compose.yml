@@ -1,15 +1,16 @@
+logstash:
+  image: logstash:1.5
+  command: logstash -f /config/logstash.conf -v
+  volumes:
+    - "$PWD/config:/config:ro"
+  ports:
+    - "3333:3333"
+  links:
+    - elasticsearch
 elasticsearch:
   image: deviantony/elk-elasticsearch
   ports:
     - "9200:9200"
-logstash:
-  image: deviantony/elk-logstash
-  volumes:
-    - logstash-conf:/etc/logstash/conf.d
-  ports:
-    - "5000:5000"
-  links:
-    - elasticsearch
 kibana4:
   image: deviantony/elk-kibana
   ports:
