@@ -4,13 +4,17 @@ logstash:
   volumes:
     - "$PWD/config:/config:ro"
   ports:
-    - "3333:3333"
+    - "5005:5005"
+    - "5005:5005/udp"
   links:
     - elasticsearch
 elasticsearch:
-  image: deviantony/elk-elasticsearch
+  image: elasticsearch:1.5
   ports:
     - "9200:9200"
+  # volumes:
+    # Persist elasticsearch data
+    # - "$PWD/esdata:/usr/share/elasticsearch/data"
 kibana4:
   image: deviantony/elk-kibana
   ports:
