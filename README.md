@@ -24,6 +24,7 @@ Configure port forwarding (OS X only)
 | logstash | UDP      | 127.0.0.1 | 5005      |          | 5005       |
 | logstash | TCP      | 127.0.0.1 | 5005      |          | 5005       |
 
+![Port forwarding with VirtualBox](images/virtual-box-port-forwarding.png)
 
 Clone this repository
 ## Usage
