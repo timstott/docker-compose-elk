@@ -1,18 +1,26 @@
 # Docker ELK stack
 
-Run the ELK (Elasticseach, Logstash, Kibana) stack with Docker and Docker-compose.
-
-It will give you the ability to quickly test your logstash filters and check how the data can be processed in Kibana.
+Run the ELK (Elasticseach, Logstash, Kibana) stack with docker and docker-compose.
 
 ## Setup
 
-1. Install [Docker](http://docker.io).
+Basics docker and docker-compose
+1. Install [Docker](http://docker.io)
+   Easily install Docker on OS X with [Kitematic](https://kitematic.com/).
 2. Install [docker-compose](http://docs.docker.com/compose/install/).
-3. Clone this repository
 
+Configure port forwarding (OS X only)
+1. Open VirtualBox
+2. select your docker machine (usualy dev)
+3. Click *Settings*
+4. Select *Network*
+5. Click *Port forwarding*
+6. Add the following 2 entries
+   logstash, UDP, 127.0.0.1, 5005, ,5005
+   logstash, TCP, 127.0.0.1, 5005, ,5005
+
+Clone this repository
 ## Usage
-
-### Start the stack and inject logs
 
 Start the ELK stack using *docker-compose*:
 
@@ -20,17 +28,19 @@ Start the ELK stack using *docker-compose*:
 $ docker-compose up
 ```
 
-You can edit the logstash configuration in *config/logstash.conf*.
-You can add filters you want to test for example.
-
-The shipped logstash configuration allows you to send content via tcp:
+Send content via tcp
 
 ```
 $ nc localhost 5005 < /example/log.json
 ```
 
-Note this logstash configuration will also drop messages with an empty
-message field.
+Receive data from remote host with remote port forwarding:
+```
+ssh example.co.uk -R 5005:localhost:5005
+```
+
+The logstash configuration drops empty messages.
+You can edit logstash configuration in *config/logstash.conf*.
 
 ## Credits
 
