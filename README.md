@@ -6,7 +6,7 @@ Run the ELK (Elasticseach, Logstash, Kibana) stack with docker and docker-compos
 
 Basics docker and docker-compose
 
-1. Install [Docker](http://docker.io)
+1. Install [Docker](http://docker.io)  
    Easily install Docker on OS X with [Kitematic](https://kitematic.com/).
 2. Install [docker-compose](http://docs.docker.com/compose/install/).
 
