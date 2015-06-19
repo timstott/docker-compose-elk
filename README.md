@@ -49,6 +49,8 @@ ssh example.co.uk -R 5005:localhost:5005
 The logstash configuration drops empty messages.
 You can edit logstash configuration in *config/logstash.conf*.
 
+You can Access Kibana via http://docker-machine-ip:5601
+
 ## Credits
 
 - [willdurand/docker-elk](https://github.com/willdurand/docker-elk)
