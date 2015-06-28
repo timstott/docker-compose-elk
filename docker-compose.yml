@@ -12,9 +12,9 @@ elasticsearch:
   image: elasticsearch:1.5
   ports:
     - "9200:9200"
-  # volumes:
-    # Persist elasticsearch data
-    # - "$PWD/esdata:/usr/share/elasticsearch/data"
+  volumes:
+    # Persist elasticsearch data on docker host
+    - "/home/docker/esdata:/usr/share/elasticsearch/data"
 kibana4:
   image: deviantony/elk-kibana
   ports:
